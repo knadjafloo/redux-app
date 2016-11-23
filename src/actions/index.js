@@ -7,7 +7,7 @@ const CLIENT_ID = "227Y2J";
 export const FETCH_USERS= 'FETCH_USERS';
 
 export function fetchUsers(userId) {
-  const url = `${ROOT_URL}{userId}/profile.json`;
+  const url = `${ROOT_URL}${userId}/profile.json`;
   const request = fetch(url);
 
   return {
