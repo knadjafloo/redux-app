@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+import { Card, CardImg, CardText, CardBlock,
+  CardTitle, CardSubtitle, Button } from 'reactstrap';
+
 
 class UsersList extends Component {
   constructor(props) {
@@ -23,7 +26,7 @@ class UsersList extends Component {
       var valStr = val.toString();
       if(valStr.startsWith("https://")) {
         return <img src={valStr} />
-      }      
+      }
     }
     if(Array.isArray(val)) {
       val.toString();
@@ -34,9 +37,19 @@ class UsersList extends Component {
     return val.toString();
   }
 
+
   render() {
     return (
       <div>
+      {this.props.users && Object.keys(this.props.users).length != 0 &&
+      <Card>
+       <CardImg top src={this.props.users['avatar150']} alt="avatar150" />
+       <CardBlock>
+         <CardTitle>{this.props.users['displayName']}</CardTitle>
+         <CardSubtitle>{this.props.users['gender']}</CardSubtitle>
+         <CardText>Height: {this.props.users['height']}</CardText>
+       </CardBlock>
+     </Card>}
       <ul className="list-group col-sm-8">
         {this.renderList()}
       </ul>
