@@ -1,10 +1,12 @@
 import React from 'react';
-import { Route, IndexRouter } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 import App from './components/App';
-import Login from './components/login';
+
+import UsersList from './containers/users_list';
 
 export default(
   <Route path="/" component={App} >
-    <Route path="/users" component={Login} />
+    <IndexRoute component={UsersList} />
+
   </Route>
 )

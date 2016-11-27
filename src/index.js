@@ -6,11 +6,16 @@ import reducers from './reducers';
 import 'whatwg-fetch';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes';
+/**
+*stop the action before it sent to the reducer so a promise is resolved before it's sent to its reducer (so reducer always has real data)
+*/
+import promise from 'redux-promise';
 
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
-//make initial call to load the users and dispatch the action
-//loadUsers().then(dispatch(show_users_action_Creator));
+const createStoreWithMiddleware = applyMiddleware(
+  promise
+)(createStore);
+
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>

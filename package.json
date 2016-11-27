@@ -26,6 +26,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "dependencies": {
+    "axios": "^0.15.2",
     "babel-preset-stage-1": "^6.1.18",
     "lodash": "^3.10.1",
     "material-ui": "^0.16.1",
@@ -38,6 +39,7 @@
     "react-tap-event-plugin": "^2.0.1",
     "reactstrap": "^3.9.1",
     "redux": "^3.0.4",
+    "redux-promise": "^0.5.3",
     "whatwg-fetch": "^1.0.0"
   }
 }
