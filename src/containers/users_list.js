@@ -12,11 +12,27 @@ class UsersList extends Component {
     console.log(this.props.users);
     var pairs = [];
       for(var key in this.props.users){
-        pairs.push(<li key={key} className="list-group-item"><h4>{key} </h4> {this.props.users[key].toString()}</li>);
+        var value = this.convertValue(this.props.users[key]);
+        pairs.push(<li key={key} className="list-group-item"><h4>{key} </h4>{value}</li>);
       }
       return pairs;
   }
 
+  convertValue(val) {
+    if(typeof val === 'string') {
+      var valStr = val.toString();
+      if(valStr.startsWith("https://")) {
+        return <img src={valStr} />
+      }      
+    }
+    if(Array.isArray(val)) {
+      val.toString();
+    }
+    if(typeof val === 'object')
+      return val.toString();
+
+    return val.toString();
+  }
 
   render() {
     return (
