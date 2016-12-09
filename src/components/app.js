@@ -5,6 +5,7 @@ import { Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchUsers } from '../actions/index';
+import { fetchFriends } from '../actions/friends_action';
 
 const CLIENT_ID = "227XCH";
 const RESPONSE_TYPE = "token";
@@ -39,6 +40,7 @@ class App extends Component {
         })
         //fetch our users info
         this.props.fetchUsers(result.access_token);
+        this.props.fetchFriends(result.access_token);
       }
     }
   }
@@ -62,8 +64,8 @@ class App extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchUsers }, dispatch);
+  return bindActionCreators({ fetchUsers, fetchFriends }, dispatch);
 }
 
 // export default connect(null, mapDispatchToProps)(App);
-export default connect(null, { fetchUsers })(App);
+export default connect(null, { fetchUsers, fetchFriends })(App);

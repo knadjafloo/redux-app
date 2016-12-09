@@ -2,6 +2,7 @@ import 'whatwg-fetch';
 import axios from 'axios';
 
 export const FETCH_USERS= 'FETCH_USERS';
+export const FETCH_FRIENDS= 'FETCH_FRIENDS';
 
 export function fetchUsers(at) {
   const url = 'https://api.fitbit.com/1/user/-/profile.json';
@@ -22,7 +23,7 @@ export function fetchUsers(at) {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Origin': ''
-      }      
+      }
     });
 
   return {
