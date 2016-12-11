@@ -15,16 +15,17 @@ export default class FriendsList  extends Component {
 
       for(var key of this.props.friends){
         var value = key.user;
-        pairs.push(<li key={value.displayName} className="list-group-item">{value.displayName}</li>);
+        pairs.push(<li key={value.displayName} className="list-group-item"><img src={value.avatar} /> {value.displayName} Avg: {value.averageDailySteps}</li>);
       }
     
       return pairs;
     }
   }
 
+
   render() {
     return (
-       <p>{this.renderFriends()}</p>
+       <ul>{this.renderFriends()}</ul>
     );
   }
 }
