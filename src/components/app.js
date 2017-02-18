@@ -9,7 +9,7 @@ import { fetchFriends } from '../actions/friends_action';
 
 const CLIENT_ID = "227XCH";
 const RESPONSE_TYPE = "token";
-const REDIRECT_URI = "http://localhost:8080";
+const REDIRECT_URI = "https://knadjafloo.github.io/";
 const SCOPE = encodeURI("activity heartrate location nutrition profile settings sleep social weight");
 
 class App extends Component {
